@@ -1,0 +1,19 @@
+<style>
+    li {
+        list-style: none;
+    }
+
+    a {
+        display: inline-block;
+        background-color: gray;
+        padding: 5px 10px;
+        margin: 5px 0;
+        text-decoration: none;
+        color: #fff;
+    }
+</style>
+
+<h1>Prueba de Flask</h1>
+{% for contacto in contactos %}
+<li><a href="">{{ contacto.1 }}</a></li>
+{% endfor %}

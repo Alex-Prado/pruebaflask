@@ -1,0 +1,139 @@
+*
+{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    
+}
+table{
+    border-collapse: collapse;
+    table-layout: fixed;
+}
+header
+{
+    width: 100vw;
+    height: 50px;
+    margin: 20px 0;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+    text-align: center;
+}
+section
+{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    width: 100%;
+}
+section form
+{
+    display: flex;
+    /* justify-content: space-evenly; */
+    flex-direction: column;
+    padding: 15px;
+    border-radius: 10px 10px 0 0;
+    border: none;
+    position: fixed;
+    bottom: 0;
+    right: 0;
+    z-index: 10;
+    border: 1px solid grey;
+
+}
+section form input
+{
+    padding: 10px;
+    margin: 5px 0;
+    outline: none;
+    
+}
+section form button
+{
+    padding: 10px 40px;
+    border: none;
+    /* border-radius: 15px 5px 15px 5px; */
+    background-color: rgb(2, 114, 151);
+    color: #fff;
+    margin: 5px;
+    text-transform: uppercase;
+    font-weight: 300;
+    margin: 5px 0;
+    border-radius: 5px;
+    
+}
+section table
+{
+    margin-top: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-direction: column;
+    width: 80%;
+    /* background-color: red; */
+
+} 
+section table thead{
+    width: 100%;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+}
+section table tr
+{
+    position: relative;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    padding: 10px;
+}
+
+table tbody{
+    position: relative;
+    width: 100%;
+}
+table tbody tr
+{
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    width: 100%;
+    text-transform: uppercase;
+}
+table tbody tr td a
+{
+    text-decoration: none;
+    padding: 10px 20px;
+    border: none;
+    font-weight: 100;
+    text-transform: uppercase;
+    background-color: rgb(107, 23, 23);
+    border-radius: 10px;
+    /* border-radius: 15px 5px 15px 5px; */
+    color: white;
+}
+footer
+{
+    /* border-left: 3px solid rgba(0, 0, 0, 0.2); */
+    margin-top: 20px;
+    width: 100%;
+    height: 50px;
+    border-top: 1px solid rgba(0, 0, 0, 0.2);
+    text-align: center;
+}
+@media (max-width:600px){
+    table thead{
+        display: none;
+    }
+    table tbody tr
+    {
+       display: block;
+       text-align: right;
+    }
+    table tbody tr td{
+        display: block;
+        padding: 8px;
+    }
+    table tbody tr td::before{
+        content: attr(data-label);
+        float: left;
+    }
+}

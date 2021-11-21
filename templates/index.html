@@ -1,19 +1,45 @@
-<style>
-    li {
-        list-style: none;
-    }
+{% extends 'layout.html' %}
+{% block head %}
+{% endblock %}
+{% block body %}
 
-    a {
-        display: inline-block;
-        background-color: gray;
-        padding: 5px 10px;
-        margin: 5px 0;
-        text-decoration: none;
-        color: #fff;
-    }
-</style>
-
-<h1>Prueba de Flask</h1>
-{% for contacto in contactos %}
-<li><a href="">{{ contacto.1 }}</a></li>
+{% with mensajes = get_flashed_messages() %}
+{% if mensajes %}
+{% for mensaje in mensajes %}
+<p>{{ mensaje }}</p>
 {% endfor %}
+{% endif %}
+{% endwith %}
+<form action="/add_contact" method="POST">
+    <input type="text" name="fullname" placeholder="Fullname">
+    <input type="text" name="lastname" placeholder="Lastname">
+    <input type="text" name="dni" placeholder="dni">
+    <button type="submit">Save</button>
+</form>
+<table>
+    <thead>
+        <tr>
+            <td>NOMBRES</td>
+            <td>APELLIDOS</td>
+            <td>TELEFONO</td>
+            <td>ACCIONES</td>
+        </tr>
+    </thead>
+    <tbody>
+        {% for contacto in contactos %}
+        <tr>
+            <td data-label="NOMBRES">{{ contacto.1 }}</td>
+            <td data-label="APELLIDOS">{{ contacto.2 }}</td>
+            <td data-label="TELEFONO">{{ contacto.3 }}</td>
+            <td data-label="ACCIONES">
+                <a href="/edit/{{ contacto.0}}">editar</a>
+                <a href="/delete/{{ contacto.0}}">eliminar</a>
+            </td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+
+{% endblock %}
+{% block footer %}
+{% endblock %}
